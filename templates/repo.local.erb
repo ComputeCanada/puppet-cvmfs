@@ -91,3 +91,6 @@ CVMFS_ALIEN_CACHE='<%= @cvmfs_alien_cache %>'
 CVMFS_SHARED_CACHE='<%= @cvmfs_shared_cache %>'
 <% end -%>
 <%end-%>
+<% if @cvmfs_custom -%>
+<%= @cvmfs_custom %>
+<% end -%>

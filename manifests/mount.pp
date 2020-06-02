@@ -22,6 +22,8 @@ define cvmfs::mount($cvmfs_quota_limit = undef,
   Optional[Integer] $cvmfs_external_timeout = undef,
   Optional[Integer] $cvmfs_external_timeout_direct = undef,
   Optional[String] $cvmfs_external_url = undef,
+  Optional[String] $cvmfs_custom = undef,
+  Optional[String] $cvmfs_public_key_content = undef,
 ) {
 
   include ::cvmfs
@@ -58,6 +60,17 @@ define cvmfs::mount($cvmfs_quota_limit = undef,
       options => $mount_options,
       atboot  => true,
       require => [File["/cvmfs/${repo}"],File["/etc/cvmfs/config.d/${repo}.local"],Concat['/etc/cvmfs/default.local'],File['/etc/fuse.conf']],
+    }
+  }
+  if $cvmfs_public_key_content and $cvmfs_public_key {
+    file{"${cvmfs_public_key}":
+      ensure  =>  file,
+      content => $cvmfs_public_key_content,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0444',
+      require => Class['cvmfs::install'],
+      notify  => Class['cvmfs::service'],
     }
   }
 }

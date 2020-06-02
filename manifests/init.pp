@@ -7,6 +7,7 @@ class cvmfs (
   Variant[Enum['auto'],Integer] $cvmfs_quota_limit               = 1000,
   Float   $cvmfs_quota_ratio                                     = 0.85,
   Stdlib::Absolutepath $cvmfs_cache_base                         = '/var/lib/cvmfs',
+  String $cvmfs_cache_base_group                                 = 'cvmfs',
   Optional[Enum['yes','no']] $cvmfs_claim_ownership              = undef,
   Optional[Enum['yes','no']] $cvmfs_mount_rw                     = undef,
   Optional[Integer] $cvmfs_memcache_size                         = undef,

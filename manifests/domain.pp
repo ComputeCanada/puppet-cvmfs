@@ -16,6 +16,7 @@ define cvmfs::domain($cvmfs_quota_limit = undef,
   Optional[Integer] $cvmfs_external_timeout = undef,
   Optional[Integer] $cvmfs_external_timeout_direct = undef,
   Optional[String] $cvmfs_external_url = undef,
+  Optional[String] $cvmfs_custom = undef,
 ) {
 
   include ::cvmfs

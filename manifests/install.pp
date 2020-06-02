@@ -19,6 +19,7 @@
 class cvmfs::install (
   $cvmfs_version = $cvmfs::cvmfs_version,
   $cvmfs_cache_base = $cvmfs::cvmfs_cache_base,
+  $cvmfs_cache_base_group = $cvmfs::cvmfs_cache_base_group,
   $cvmfs_yum_manage_repo = $cvmfs::cvmfs_yum_manage_repo,
 ) inherits cvmfs {
 
@@ -38,7 +39,7 @@ class cvmfs::install (
     file{$cvmfs_cache_base:
       ensure  => directory,
       owner   => cvmfs,
-      group   => cvmfs,
+      group   => $cvmfs_cache_base_group,
       mode    => '0700',
       seltype => $cache_seltype,
     }
