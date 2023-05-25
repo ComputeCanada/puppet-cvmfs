@@ -73,6 +73,7 @@ define cvmfs::mount (
   Optional[Integer] $cvmfs_external_timeout_direct                  = undef,
   Optional[String] $cvmfs_external_url                              = undef,
   Optional[String[1]] $cvmfs_repository_tag                         = undef,
+  Optional[String[1]] $cvmfs_custom                                 = undef,
 ) {
   include cvmfs
 
@@ -116,6 +117,7 @@ define cvmfs::mount (
         'cvmfs_external_url'            => $cvmfs_external_url,
         'cvmfs_external_http_proxy'     => $cvmfs_external_http_proxy,
         'cvmfs_repository_tag'          => $cvmfs_repository_tag,
+        'cvmfs_custom'                  => $cvmfs_custom,
     }),
     owner   => 'root',
     group   => 'root',

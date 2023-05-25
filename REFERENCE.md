@@ -859,6 +859,7 @@ The following parameters are available in the `cvmfs::mount` defined type:
 * [`cvmfs_external_url`](#-cvmfs--mount--cvmfs_external_url)
 * [`cvmfs_repository_tag`](#-cvmfs--mount--cvmfs_repository_tag)
 * [`mount_options`](#-cvmfs--mount--mount_options)
+* [`cvmfs_custom`](#-cvmfs--mount--cvmfs_custom)
 
 ##### <a name="-cvmfs--mount--repo"></a>`repo`
 
@@ -1076,3 +1077,10 @@ Mount options to use for fstab style mounting.
 
 Default value: `'defaults,_netdev,nodev'`
 
+##### <a name="-cvmfs--mount--cvmfs_custom"></a>`cvmfs_custom`
+
+Data type: `Optional[String]`
+
+String to append to repository local conf file.
+
+Default value: `undef`
