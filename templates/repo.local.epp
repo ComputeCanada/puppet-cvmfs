@@ -42,7 +42,7 @@
   Optional[Array[Integer[0],1]]                $cvmfs_cpu_affinity = undef,
   Optional[Array[Integer[1],1]]                $cvmfs_xattr_privileged_gids = undef,
   Optional[Array[String[1],1]]                 $cvmfs_xattr_protected_xattrs = undef,
-
+  Optional[String]                             $cvmfs_custom = undef,
 | -%>
 <% if $repo { -%>
 # cvmfs <%= $repo -%>.local file installed with puppet.
@@ -174,3 +174,6 @@ CVMFS_INSTRUMENT_FUSE=<%= $cvmfs_instrument_fuse %>
     }
   }
 -%>
+<% if $cvmfs_custom { -%>
+<%= $cvmfs_custom %>
+<% } -%>
